@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotéricas</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="age-warning">
+        <div class="warning-content">
+            <h1>Proibido para menores de 18 anos</h1>
+            <p>Você tem mais de 18 anos?</p>
+            <div class="YesorNo">
+                <button id="yes-btn">Sim</button>
+                <button id="no-btn">Não</button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="header-wrapper">
+            <!-- Imagem do lado esquerdo +18 anos veio fudido -->
+            <div class="header-left">
+                <img src="img/18_Anos_SemFundo.png" alt="Imagem +18">
+            </div>
+    
+            <!-- Logo no centro feia pra krlh-->
+            <div class="logo-container">
+                <a href="#top"><img src="img/LogoLimpa.png" alt="Logo Loteria"></a>
+            </div>
+    
+            <!-- Texto à direita sla mano-->
+            <div class="header-right">
+                <p>lotcarrefourshibatabonfim</p>
+            </div>
+        </div>
+        
+        <!-- Botões no header -->
+        <div class="header-buttons">
+            <button class="btn" id="como-apostar">Como apostar</button>
+            <button class="btn" id="btn-apostar-header">Apostar Agora</button>
+            <button class="btn">Botão 3</button>
+        </div>
+    </header>
+    <!-- Conteudo cards-->
+    <main>
+        <!-- Cartão com transições entre opções -->
+        <div class="card">
+            <!-- Botões de controle N ESQUECE DE BOTAR O NOME DAS LOJAS-->
+            <div class="buttons">
+                <button class="option active" aria-expanded="true" onclick="showOption(1)">Shibata</button>
+                <button class="option" aria-expanded="false" onclick="showOption(2)">Carrefour</button>
+            </div>
+    
+            <!-- Conteúdo dinâmico -->
+            <div class="content" id="cardContent">
+                <!-- Conteúdo da Shibatao -->
+                <div class="option-content active" id="opcao1">
+                    <div class="card-left">
+                        <img src="img/Shibata.jpg" alt="Imagem do shibata - esquerda">
+                    </div>
+                    <div class="card-right">
+                        <div class="info">
+                            <p>	&#40Av. Charles Schnneider, 1750 - Barranco, Taubaté - SP, 12040-000&#41</p>
+                            <section id="map">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.0077524969264!2d-45.57448938503106!3d-23.02951298494508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cc2d0123b2f49f%3A0x39e9d3b3afdc6e8f!2sAv.%20Charles%20Schnneider%2C%201750%20-%20Barranco%2C%20Taubat%C3%A9%20-%20SP%2C%2012040-000!5e0!3m2!1sen!2sbr!4v1698785535293!5m2!1sen!2sbr"
+                                    width="100%"
+                                    height="400"
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </section>
+                        </div>
+                        <button class="btn btn-apostar btn-apostar-opcao1">Apostar Agora</button>
+                    </div>
+                </div>
+    
+                <!-- Conteúdo da Carrefour -->
+                <div class="option-content" id="opcao2">
+                    <div class="card-left">
+                        <img src="img/opcao2_esquerda.png" alt="Imagem Carrefour - esquerda">
+                    </div>
+                    <div class="card-right">
+                        <div class="info">
+                            <img src="img/opcao2_direita.png" alt="Imagem Carrefour - direita">
+                            <p>Texto explicativo ao lado da imagem direita da Opção 2.</p>
+                        </div>
+                        <button class="btn btn-apostar btn-apostar-opcao2">Apostar Agora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<section id="como-apostar-section" class="container">
+    <div class="cardText top-left">
+        <h3>Acesse a loja de bolões</h3>
+        <p>Para começar, clique no botão laranja desta página ou utilize os links enviados pelos nossos atendentes via WhatsApp.</p>
+        <span class="icon">📩</span>
+    </div>
+    <div class="cardText top-right">
+        <h3>Cadastre-se</h3>
+        <p>No seu primeiro acesso, crie sua conta em poucos minutos. Depois de cadastrado, basta usar seu usuário e senha para participar sempre que desejar.</p>
+        <span class="icon">📋</span>
+    </div>
+    <div class="image-center">
+        <img src="img/MoneyRainSemFundo.png" alt="Celular com informações" />
+    </div>
+    <div class="cardText bottom-left">
+        <h3>Faça a confirmação</h3>
+        <p>Você receberá um código de segurança no e-mail informado durante o cadastro. Insira este código para ativar sua conta.</p>
+        <span class="icon">✔️</span>
+    </div>
+    <div class="cardText bottom-right">
+        <h3>Garanta suas cotas</h3>
+        <p>Com a conta ativa, clique no botão laranja para acessar a página de bolões oferecidos pela lotérica. Escolha suas cotas e finalize o pagamento.</p>
+        <span class="icon">💳</span>
+    </div>
+</section>
+
+<div class="contact">
+    <div class="contact-inner" id="contact-inner">
+        <div class="contact-front">
+            <div class="contact-content">
+                <div class="text">
+                    <p>Entre em contato conosco!</p>
+                </div>
+                <div class="whatsapp-section">
+                    <img class="whatsapp-logo" src="img/WhatsappSemFundo.png" alt="WhatsApp" onclick="window.open('https://link-opcao-1.com')">
+                    <div class="emails">
+                        <p>Email 1: contato1@loterica.com</p>
+                        <p>Email 2: contato2@loterica.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="toggle-buttons">
+                <button class="toggle active" data-side="front">Opção 1</button>
+                <button class="toggle" data-side="back">Opção 2</button>
+            </div>
+        </div>
+        <div class="contact-back">
+            <div class="contact-content">
+                <div class="whatsapp-section">
+                    <img class="whatsapp-logo" src="img/WhatsappSemFundo.png" alt="WhatsApp" onclick="window.open('https://link-opcao-2.com')">
+                    <div class="emails">
+                        <p>Email 1: contato1@loterica.com</p>
+                        <p>Email 2: contato2@loterica.com</p>
+                    </div>
+                </div>
+                <div class="text">
+                    <p>Fale conosco por outro canal.</p>
+                </div>
+            </div>
+            <div class="toggle-buttons">
+                <button class="toggle" data-side="front">Opção 1</button>
+                <button class="toggle active" data-side="back">Opção 2</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
