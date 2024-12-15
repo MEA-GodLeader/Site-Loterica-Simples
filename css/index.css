@@ -1,0 +1,515 @@
+/* Geral */
+*{
+    font-family: 'Noto Sans Arabic', Arial, sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/ImgFundoSite3.jpg');
+    background-size: cover;
+   /* background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Gradiente suave */
+}
+
+main {
+    margin-top: 120px;
+}
+
+#age-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.warning-content {
+    text-align: center;
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.warning-content h1 {
+    margin: 0 0 15px;
+}
+
+.warning-content p {
+    margin: 0 0 20px;
+}
+
+.YesorNo button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#yes-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+#no-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Cabeçalho */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #27dd4e;
+    color: white;
+    padding: 5px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ccc;
+}
+
+.header-left img {
+    max-width: 80px;
+    height: auto;
+}
+
+.logo-container img {
+    max-width: 60px;
+    height: 6%;
+}
+
+.header-right p {
+    font-size: 14px;
+}
+
+/* Botões no cabeçalho */
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.header-buttons .btn {
+    flex: 1;
+    padding: 10px 0;
+    font-size: 14px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-right: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.header-buttons .btn:last-child {
+    border-right: none;
+}
+
+.header-buttons .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+
+.header-buttons .btn:active {
+    transform: scale(0.98); /* Dá efeito de pressionamento */
+}
+
+/* Cartão */
+.card {
+    position: relative;
+    width: 90%; /* Ocupa 90% da largura da página */
+    max-width: 1200px; /* Limita o tamanho do card em telas maiores */
+    height: 100vh; /* Ocupa 100% da altura da janela */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 20px; /* Adiciona preenchimento interno */
+    background: linear-gradient(135deg, #333, #444); /* Fundo escuro com gradiente */
+    color: #fff; /* Texto claro para contraste */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Sombra mais intensa */
+    border-radius: 20px; /* Bordas arredondadas suaves */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Garante que o conteúdo preencha o espaço */
+}
+
+/* Botões de opções */
+.buttons {
+    display: flex;
+    justify-content: center;
+    background: #222; /* Fundo escuro */
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil */
+}
+
+.option {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #bbb; /* Cor clara */
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease, color 0.3s ease;
+}
+
+.option.active {
+    border-bottom: 2px solid #00aaff;
+    color: #00aaff;
+}
+
+.option:hover {
+    color: #0077cc;
+}
+
+/* Conteúdo */
+.content {
+    display: flex;
+    flex: 1;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.option-content {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(20px); /* Movemos o conteúdo ligeiramente para a direita */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animação suave */
+}
+
+.option-content.active {
+    opacity: 1;
+    transform: translateX(0); /* Retorna à posição original */
+    z-index: 1; /* Garante que o conteúdo ativo esteja na frente */
+}
+
+/* Parte esquerda */
+.card-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #555; /* Fundo mais escuro */
+    overflow: hidden;
+    border-radius: 15px; /* Bordas arredondadas */
+    margin-right: 10px;
+}
+
+.card-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenchimento da imagem */
+    object-position: center; /* Centraliza a imagem */
+}
+
+/* Parte direita */
+.card-right {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05); /* Fundo levemente destacado */
+    border-radius: 15px;
+}
+
+.card-right img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.card-right p {
+    margin: 0 0 20px;
+    font-size: 18px;
+    color: #ddd; /* Texto mais claro */
+}
+
+.card-right button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-right button:hover {
+    background-color: #0077cc;
+    transform: scale(1.05); /* Efeito de crescimento */
+}
+
+/* Efeito de piscar */
+@keyframes flash {
+    0%, 100% { background-color: #00aaff; }
+    50% { background-color: #0077cc; }
+}
+
+.flash {
+    animation: flash 1.5s ease-in-out infinite;
+}
+
+
+
+/* Estilo para imagem com cards */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: auto;
+}
+
+.image-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+
+.image-center img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cardText {
+    position: relative;
+    width: 300px;
+    background: linear-gradient(135deg, rgba(100, 149, 237, 0.9), rgba(123, 104, 238, 0.85)); /* Gradiente mais escuro */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    /*animation: fadeIn 2s ease-out forwards;*/
+    margin: 50px auto; /* Aumenta o espaço acima e abaixo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardText:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+.cardText h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff; /* Letra branca para maior contraste */
+    font-weight: bold;
+}
+
+.cardText p {
+    font-size: 16px;
+    color: #f0f0f0; /* Letra em tom claro, mas não branco puro */
+    line-height: 1.5;
+}
+
+.cardText .icon {
+    font-size: 30px;
+    color: #ffd700;
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro para maior contraste */
+    border-radius: 50%;
+    padding: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.cardText.initial {
+    animation: fadeIn 2s ease-out;
+}
+
+/* Estilização para disposição responsiva */
+.container .card:nth-child(odd) {
+    animation-delay: 0.3s;
+}
+
+.container .card:nth-child(even) {
+    animation-delay: 0.6s;
+}
+
+.top-left {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0.3s;
+}
+
+.top-right {
+    top: 20%;
+    right: 40%;
+    animation-delay: 0.6s;
+}
+
+.bottom-left {
+    bottom: 20%;
+    left: 40%;
+    animation-delay: 0.9s;
+}
+
+.bottom-right {
+    bottom: 20%;
+    right: 30%;
+    animation-delay: 1.2s;
+}
+
+.image-center img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Pisca para todos os cartões */
+@keyframes pisca-bg {
+    0%, 100% {
+        background-color: rgb(195, 18, 18);
+        box-shadow: none;
+    }
+    50% {
+        background-color: #fff8dc;
+        box-shadow: 0 0 10px #f7d647;
+    }
+}
+
+.cardText.flash {
+    animation: pisca-bg 0.5s ease-in-out 3;
+}
+
+
+
+.contact {
+    width: 100%;
+    max-width: 1200px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.contact-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.contact-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.contact-front, .contact-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-back {
+    transform: rotateY(180deg);
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.text {
+    flex: 1;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-right: 20px;
+}
+
+.whatsapp-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.whatsapp-logo {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.emails {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.toggle-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.toggle-buttons button.active {
+    background-color: #0056b3;
+}
+
+.toggle-buttons button:hover {
+    background-color: #0056b3;
+}
